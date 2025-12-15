@@ -18,18 +18,12 @@
 
 	<!-- Video -->
 	<div class="mx-auto max-w-md">
-		{#if !presenter.isVideoLoaded}
-			<div class="flex aspect-square items-center justify-center rounded bg-gray-200">
-				<p class="text-gray-600">Loading Camera...</p>
-			</div>
-		{/if}
 		<video
 			bind:this={videoElement}
 			autoplay
 			muted
 			playsinline
-			class={presenter.isVideoLoaded ? 'aspect-square w-full rounded object-cover' : 'hidden'}
-			onloadeddata={() => (presenter.isVideoLoaded = true)}
+			class="aspect-square w-full rounded object-cover"
 		></video>
 	</div>
 

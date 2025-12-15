@@ -4,7 +4,6 @@ import { SvelteSet } from 'svelte/reactivity';
 export class ScanPresenter {
 	private scanner: QrScanner | null = null;
 	public scannedCodes: SvelteSet<string> = $state(new SvelteSet<string>());
-	public isVideoLoaded = $state(false);
 	private detected: Set<string> = new Set();
 
 	private processQrCode(data: string): void {
