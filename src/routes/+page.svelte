@@ -29,17 +29,17 @@
 
 	<!-- Scanned codes list -->
 	<div class="mx-auto mt-8 max-w-md">
-		<h2 class="mb-4 text-xl font-semibold">Scanned Codes ({presenter.scannedCodes.size})</h2>
+		<h2 class="mb-4 text-xl font-semibold">Scanned Items ({presenter.scannedIds.size})</h2>
 
-		{#if presenter.scannedCodes.size === 0}
+		{#if presenter.scannedIds.size === 0}
 			<p class="py-8 text-center text-gray-500">No codes scanned yet</p>
 		{:else}
 			<div class="space-y-2">
-				{#each [...presenter.scannedCodes] as code (code)}
+				{#each [...presenter.scannedIds] as id (id)}
 					<div class="flex items-center gap-2 rounded border border-blue-200 bg-blue-50 p-3">
-						<code class="flex-1 break-all text-sm">{code}</code>
+						<code class="flex-1 break-all text-sm">{id}</code>
 						<button
-							onclick={() => presenter.removeCode(code)}
+							onclick={() => presenter.removeCode(id)}
 							class="rounded bg-red-500 px-3 py-1 text-sm text-white hover:bg-red-600"
 						>
 							Remove
@@ -47,6 +47,13 @@
 					</div>
 				{/each}
 			</div>
+
+			<button
+				onclick={() => window.location.href = presenter.getCheckoutUrl()}
+				class="mt-4 w-full rounded bg-green-500 px-4 py-3 font-semibold text-white hover:bg-green-600"
+			>
+				Check out items
+			</button>
 		{/if}
 	</div>
 </main>
