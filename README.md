@@ -62,3 +62,31 @@ To test on a mobile device connected to the same network:
 - Certificates are gitignored and must be generated locally
 - HTTPS is only enabled in development mode (`NODE_ENV=development`)
 - If you switch networks, you may need to access via IP address or regenerate certificates
+
+## Production Deployment
+
+This project is configured for static hosting on GitHub Pages at: `https://parkernilson.github.io/sds-choir-scanner/`
+
+### Automatic Deployment
+
+The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch via GitHub Actions.
+
+### Manual Deployment
+
+You can also trigger a deployment manually:
+1. Go to the repository's Actions tab
+2. Select "Deploy to GitHub Pages"
+3. Click "Run workflow"
+
+### Local Production Preview
+
+To test the production build locally with the correct base path:
+
+```bash
+NODE_ENV=production npm run build
+npm run preview
+```
+
+Then visit: `http://localhost:4173/sds-choir-scanner/`
+
+This previews the exact site that will be deployed to GitHub Pages, including the `/sds-choir-scanner/` base path.
